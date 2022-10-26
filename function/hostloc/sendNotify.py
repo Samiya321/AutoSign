@@ -2,7 +2,7 @@
 Author: Samiya
 Date: 2022-10-26 10:39:59
 LastEditors: Samiya
-LastEditTime: 2022-10-26 11:24:41
+LastEditTime: 2022-10-26 12:26:56
 FilePath: /function/hostloc/sendNotify.py
 Description: 
 '''
@@ -33,10 +33,10 @@ class sendNotify:
     # =======================================telegram机器人通知设置区域===========================================
     # 此处填你telegram bot 的Token，例如：1077xxx4424:AAFjv0FlexboxEMGfi22B4yh15R5uw
     # 注：此处设置github action用户填写到Settings-Secrets里面(Name输入TG_BOT_TOKEN)
-    TG_BOT_TOKEN = '5652509870:AAG93c-5qeSeBN-hYUPy0cWywX5RvAXm6cQ'
+    TG_BOT_TOKEN = ''
     # 此处填你接收通知消息的telegram用户的id，例如：129xxx206
     # 注：此处设置github action用户填写到Settings-Secrets里面(Name输入TG_USER_ID)
-    TG_USER_ID = '5710592740'
+    TG_USER_ID = ''
 
     # =======================================钉钉机器人通知设置区域===========================================
     # 此处填你钉钉 bot 的webhook，例如：5a544165465465645d0f31dca676e7bd07415assayed
