@@ -2,10 +2,11 @@
 Author: Samiya
 Date: 2022-10-26 08:59:28
 LastEditors: Samiya
-LastEditTime: 2022-10-26 12:08:17
+LastEditTime: 2022-10-26 12:16:46
 FilePath: /function/hostloc/hostloc.py
 Description: 
 '''
+
 import os
 import time
 import random
