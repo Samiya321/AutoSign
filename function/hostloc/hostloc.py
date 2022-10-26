@@ -2,16 +2,16 @@
 Author: Samiya
 Date: 2022-10-26 08:59:28
 LastEditors: Samiya
-LastEditTime: 2022-10-26 12:05:19
+LastEditTime: 2022-10-26 12:08:17
 FilePath: /function/hostloc/hostloc.py
 Description: 
 '''
-from msilib.schema import SelfReg
 import os
 import time
 import random
 import re
 import textwrap
+from typing_extensions import Self
 import requests
 import sys
 
@@ -268,4 +268,4 @@ if __name__ == "__main__":
         :type messageContent: list[str]
         """
         content = "\n".join(messageContent)
-        sendNotify.send(SelfReg,title="Hostloc签到成功", msg=content)
+        sendNotify.send(Self,title="Hostloc签到成功", msg=content)
