@@ -2,7 +2,7 @@
 Author: Samiya
 Date: 2022-10-26 12:34:03
 LastEditors: Samiya
-LastEditTime: 2022-10-26 12:52:13
+LastEditTime: 2022-10-26 13:10:49
 FilePath: /function/meituan/mt-action-scripts.py
 Description: 
 '''
@@ -888,10 +888,11 @@ def main():
         print("您已默认关闭pushPlus推送!若需开启,请手动配置环境变量yesornot2!\n")
 
     if(yesornot == "y"):
-        if n_time>d_time0:
-            serverjiang()
-        else:
-            print("当前时间段非抢红包时间,默认关闭server酱推送以节约server酱每日5条推送的限额！")
+        serverjiang()
+        # if n_time>d_time0:
+        #     serverjiang()
+        # else:
+        #     print("当前时间段非抢红包时间,默认关闭server酱推送以节约server酱每日5条推送的限额！")
     else:
         print("您已默认关闭server酱推送!若需开启,请手动配置环境变量yesornot\n")
     sendtg()
