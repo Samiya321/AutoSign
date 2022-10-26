@@ -158,7 +158,6 @@ async function sendNotify(
   text,
   desp,
   params = {},
-  author = '\n\n本项目 By：https://github.com/BlueSkyClouds',
 ) {
   //提供6种通知
   desp += author; //增加作者信息，防止被贩卖等
