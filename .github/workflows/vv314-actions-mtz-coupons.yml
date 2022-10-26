@@ -1,0 +1,28 @@
+name: vv314-actions-mtz-coupons-sync
+on:
+  schedule:
+    - cron: '1 2 * * *'
+  workflow_dispatch:
+  watch:
+    types: started
+  repository_dispatch:
+    types: vv314-actions-mtz-coupons-sync
+jobs:
+  repo-sync:
+    env:
+      PAT: ${{ secrets.PAT || github.event.client_payload.PAT }}
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id || ! github.event.sender.id || github.actor == 'BlueSkyClouds'
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - name: sync vv314-actions-mtz-coupons
+        uses: repo-sync/github-sync@v2
+        if: env.PAT
+        with:
+          source_repo: "https://github.com/vv314/actions-mtz-coupons.git"
+          source_branch: "main"
+          destination_branch: "vv314-actions-mtz-coupons"
+          github_token: ${{ secrets.PAT || github.event.client_payload.PAT }}
