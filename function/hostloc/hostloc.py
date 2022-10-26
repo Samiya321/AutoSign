@@ -2,8 +2,8 @@
 Author: Samiya
 Date: 2022-10-26 08:59:28
 LastEditors: Samiya
-LastEditTime: 2022-10-26 10:46:53
-FilePath: /function/hostloc/loc.py
+LastEditTime: 2022-10-26 11:04:34
+FilePath: /function/hostloc/hostloc.py
 Description: 
 '''
 import os
@@ -12,6 +12,7 @@ import random
 import re
 import textwrap
 import requests
+import sys
 
 sys.path.append("AutoSign/function/hostloc")
 
