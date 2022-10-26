@@ -10,9 +10,9 @@ on:
 jobs:
   repo-sync:
     env:
-      PAT: ${{ secrets.PAT || github.event.client_payload.PAT }}
+      PAT: ${{ secrets.PAT }}
     runs-on: ubuntu-latest
-    if: github.event.repository.owner.id == github.event.sender.id || ! github.event.sender.id || github.actor == 'BlueSkyClouds'
+    if: github.event.repository.owner.id == github.event.sender.id
     steps:
       - uses: actions/checkout@v3
         with:
@@ -25,4 +25,4 @@ jobs:
           source_repo: "https://github.com/MayoBlueSky/My-Actions.git"
           source_branch: "master"
           destination_branch: "MayoBlueSky-My-Actions"
-          github_token: ${{ secrets.PAT || github.event.client_payload.PAT }}
+          github_token: ${{ secrets.PAT }}

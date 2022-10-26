@@ -2,8 +2,8 @@
 Author: Samiya
 Date: 2022-10-26 08:59:28
 LastEditors: Samiya
-LastEditTime: 2022-10-26 09:01:16
-FilePath: /loc.py
+LastEditTime: 2022-10-26 10:46:53
+FilePath: /function/hostloc/loc.py
 Description: 
 '''
 import os
@@ -13,9 +13,13 @@ import re
 import textwrap
 import requests
 
+sys.path.append("AutoSign/function/hostloc")
+
+from sendNotify import *
 from pyaes import AESModeOfOperationCBC
 from requests import Session as req_Session
 
+now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 
 # 随机生成用户空间链接
 def randomly_gen_uspace_url() -> list:
@@ -257,4 +261,5 @@ if __name__ == "__main__":
 
         print("程序执行完毕，获取积分过程结束")
         printLog("程序执行完毕，获取积分过程结束")
+        sendNotify.send(title=u"hostloc签到", msg=messageContent)
         #sendMessage(serverChan, messageTitle, messageContent)

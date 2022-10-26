@@ -1,0 +1,8 @@
+requests
+pyaes
+rsa
+opencv-python
+pytz
+python-dateutil
+numpy
+chardet

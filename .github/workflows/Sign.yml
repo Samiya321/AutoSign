@@ -1,0 +1,92 @@
+name: 签到
+
+on:
+    workflow_dispatch:
+    schedule:
+        - cron: "5 16 * * *"
+    watch:
+        types: [started]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+
+            - name: "初始化Python"
+              uses: actions/setup-python@v4
+              with:
+                python-version: '3.8'
+
+            - name: "安装python依赖包"
+              run: pip install -r ./requirements.txt
+
+            - name: "初始化Node.js"
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+
+            - name: "安装npm"
+              run: |
+                  npm install
+
+            - name: "哔哩哔哩签到"
+              env:
+                  BILI_USER: ${{ secrets.BILI_USER }}
+                  BILI_PASS: ${{ secrets.BILI_PASS }}
+                  BILI_COOKIE: ${{ secrets.BILI_COOKIE }}
+                  BILI_NUM: ${{ secrets.BILI_NUM }}
+                  BILI_TYPE: ${{ secrets.BILI_TYPE }}
+                  BILI_S2C: ${{ secrets.BILI_S2C }}
+                  SEND_KEY: ${{ secrets.SEND_KEY }}
+                  TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+                  TG_USER_ID: ${{ secrets.TG_USER_ID }}
+              run: python3 function/bilibili/bilibili.py
+
+            - name: 'Hostloc签到'
+              env:
+                  HOSTLOC_USERNAME: ${{ secrets.HOSTLOC_USERNAME }}
+                  HOSTLOC_PASSWORD: ${{ secrets.HOSTLOC_PASSWORD }}
+                  SEND_KEY: ${{ secrets.SEND_KEY }}
+                  TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+                  TG_USER_ID: ${{ secrets.TG_USER_ID }}                  
+              run: python function/hostloc/hostloc.py
+  
+            - name: "V2ex自动签到"
+              env:
+                  V2EXCK: ${{ secrets.V2EXCK }}
+                  SEND_KEY: ${{ secrets.SEND_KEY }}
+                  TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+                  TG_USER_ID: ${{ secrets.TG_USER_ID }}   
+              run: |
+                  node function/v2ex/v2ex.js                  
+
+            # - name: "爱奇艺会员签到"
+            #   run: |
+            #       node function/iQIYI-DailyBonus/iqiyi.js
+            #   env:
+            #       iQIYI_COOKIE: ${{ secrets.iQIYI_COOKIE }}
+            #       SEND_KEY: ${{ secrets.SEND_KEY }}
+            #       TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+            #       TG_USER_ID: ${{ secrets.TG_USER_ID }}
+
+            # - name: "腾讯视频签到"
+            #   run: |
+            #       node function/q_video/q_video.js
+            #   env:
+            #       V_REF_URL: ${{ secrets.V_REF_URL }}
+            #       V_COOKIE: ${{ secrets.V_COOKIE }}
+            #       SEND_KEY: ${{ secrets.SEND_KEY }}
+            #       TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+            #       TG_USER_ID: ${{ secrets.TG_USER_ID }}
+
+            # - name: "小米自动刷步数"
+            #   run: python3 function/xiaomi_sports/xiaomi.py
+            #   env:
+            #       Xiaomi_User: ${{ secrets.Xiaomi_User }}
+            #       Xiaomi_Pw: ${{ secrets.Xiaomi_Pw }}
+            #       Xiaomi_Bs: ${{ secrets.Xiaomi_Bs }}
+            #       SEND_KEY: ${{ secrets.SEND_KEY }}
+            #       TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+            #       TG_USER_ID: ${{ secrets.TG_USER_ID }}

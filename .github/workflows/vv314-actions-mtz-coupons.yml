@@ -1,7 +1,7 @@
 name: vv314-actions-mtz-coupons-sync
 on:
   schedule:
-    - cron: '1 2 * * *'
+    - cron: '1 1 * * *'
   workflow_dispatch:
   watch:
     types: started
@@ -10,9 +10,9 @@ on:
 jobs:
   repo-sync:
     env:
-      PAT: ${{ secrets.PAT || github.event.client_payload.PAT }}
+      PAT: ${{ secrets.PAT }}
     runs-on: ubuntu-latest
-    if: github.event.repository.owner.id == github.event.sender.id || ! github.event.sender.id || github.actor == 'BlueSkyClouds'
+    if: github.event.repository.owner.id == github.event.sender.id
     steps:
       - uses: actions/checkout@v3
         with:
@@ -25,4 +25,4 @@ jobs:
           source_repo: "https://github.com/vv314/actions-mtz-coupons.git"
           source_branch: "main"
           destination_branch: "vv314-actions-mtz-coupons"
-          github_token: ${{ secrets.PAT || github.event.client_payload.PAT }}
+          github_token: ${{ secrets.PAT }}
