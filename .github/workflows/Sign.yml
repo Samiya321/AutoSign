@@ -31,27 +31,27 @@ jobs:
               run: |
                   npm install
 
-            - name: "哔哩哔哩签到"
-              env:
-                  BILI_USER: ${{ secrets.BILI_USER }}
-                  BILI_PASS: ${{ secrets.BILI_PASS }}
-                  BILI_COOKIE: ${{ secrets.BILI_COOKIE }}
-                  BILI_NUM: ${{ secrets.BILI_NUM }}
-                  BILI_TYPE: ${{ secrets.BILI_TYPE }}
-                  BILI_S2C: ${{ secrets.BILI_S2C }}
-                  SEND_KEY: ${{ secrets.SEND_KEY }}
-                  TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
-                  TG_USER_ID: ${{ secrets.TG_USER_ID }}
-              run: python3 function/bilibili/bilibili.py
+            # - name: "哔哩哔哩签到"
+            #   env:
+            #       BILI_USER: ${{ secrets.BILI_USER }}
+            #       BILI_PASS: ${{ secrets.BILI_PASS }}
+            #       BILI_COOKIE: ${{ secrets.BILI_COOKIE }}
+            #       BILI_NUM: ${{ secrets.BILI_NUM }}
+            #       BILI_TYPE: ${{ secrets.BILI_TYPE }}
+            #       BILI_S2C: ${{ secrets.BILI_S2C }}
+            #       SEND_KEY: ${{ secrets.SEND_KEY }}
+            #       TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+            #       TG_USER_ID: ${{ secrets.TG_USER_ID }}
+            #   run: python3 function/bilibili/bilibili.py
 
-            - name: 'Hostloc签到'
-              env:
-                  HOSTLOC_USERNAME: ${{ secrets.HOSTLOC_USERNAME }}
-                  HOSTLOC_PASSWORD: ${{ secrets.HOSTLOC_PASSWORD }}
-                  SEND_KEY: ${{ secrets.SEND_KEY }}
-                  TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
-                  TG_USER_ID: ${{ secrets.TG_USER_ID }}                  
-              run: python function/hostloc/hostloc.py
+            # - name: 'Hostloc签到'
+            #   env:
+            #       HOSTLOC_USERNAME: ${{ secrets.HOSTLOC_USERNAME }}
+            #       HOSTLOC_PASSWORD: ${{ secrets.HOSTLOC_PASSWORD }}
+            #       SEND_KEY: ${{ secrets.SEND_KEY }}
+            #       TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+            #       TG_USER_ID: ${{ secrets.TG_USER_ID }}                  
+            #   run: python function/hostloc/hostloc.py
   
             - name: "V2ex自动签到"
               env:
