@@ -2,10 +2,11 @@
 Author: Samiya
 Date: 2022-10-26 08:59:28
 LastEditors: Samiya
-LastEditTime: 2022-10-26 11:04:34
+LastEditTime: 2022-10-26 12:05:19
 FilePath: /function/hostloc/hostloc.py
 Description: 
 '''
+from msilib.schema import SelfReg
 import os
 import time
 import random
@@ -262,5 +263,9 @@ if __name__ == "__main__":
 
         print("程序执行完毕，获取积分过程结束")
         printLog("程序执行完毕，获取积分过程结束")
-        sendNotify.send(title=u"hostloc签到", msg=messageContent)
-        #sendMessage(serverChan, messageTitle, messageContent)
+        """
+
+        :type messageContent: list[str]
+        """
+        content = "\n".join(messageContent)
+        sendNotify.send(SelfReg,title="Hostloc签到成功", msg=content)
