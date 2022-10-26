@@ -5,6 +5,7 @@
 | `PAT`              | 使用Github Actions同步和拉取代码 | 利用Github Actions自动同步上游仓库[PAT获取教程](RepoSync.md) |
 | `HOSTLOC_USERNAME` | Hostloc账号                      |                                                              |
 | `HOSTLOC_PASSWORD` | Hostloc密码                      |                                                              |
+| `MTTOKEN`          | 美团Token                        | 登录网页版美团，获取CK里的Token字段，只要内容                |
 | `IQIYI_COOKIE`     | 爱奇艺Cookie                     | F12控制台执行`console.log(document.cookie)`电脑版有效期三个月 |
 | `Xiaomi_User`      | 小米运动账号                     | 小米运动账号,多账号请用#分割 例如：13800138000#13800138001   |
 | `Xiaomi_Pw`        | 小米运动密码                     | 小米运动密码,多账号请用#分割 例如：abc123qwe#abcqwe2         |

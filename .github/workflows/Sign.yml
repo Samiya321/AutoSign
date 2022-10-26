@@ -94,10 +94,12 @@ jobs:
             - name: run meituanshenquan scripts
               env:
                 SEND_KEY: ${{ secrets.SEND_KEY }}
+                serverkey: ${{ secrets.SERVERKEY }}     #必填项目,请自行在fork的项目上设置 秘密环境变量，变量含义：server 酱推送所用token
+                pushPlusToken: ${{ secrets.PUSHPLUSTOKEN }} #必填项目,请自行在fork的项目上设置 秘密环境变量，变量含义：pushPlus推送所用token                
                 TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
                 TG_USER_ID: ${{ secrets.TG_USER_ID }}
-                yesornot: "n" #必填项目,双引号内填写n则代表不开启server酱推送,填写n则开启推送
-                yesornot2: "n" #必填项目,双引号内填写n则代表不开启pushPlus推送,填写n则开启推送
+                yesornot: "y" #必填项目,双引号内填写n则代表不开启server酱推送,填写y则开启推送
+                yesornot2: "n" #必填项目,双引号内填写n则代表不开启pushPlus推送,填写y则开启推送
                 token: ${{ secrets.MTTOKEN }}   #必填项目,请自行在fork的项目上设置 秘密环境变量，变量含义：美团token
                 on: 1  #必填项目,此配置为默认开启在有十元必中符的情况下自动抢15以上红包，若需关闭，请将1改为0，注意勿破坏空格缩进
                 left : 5   #必填项目,若在默认开启自动抢15以上红包且有10元以上必中符的情况下，无法抢到必中符保底红包，请手动将该值从0改大些
