@@ -53,14 +53,14 @@ jobs:
                   TG_USER_ID: ${{ secrets.TG_USER_ID }}                  
               run: python function/hostloc/hostloc.py
   
-            - name: "V2ex自动签到"
-              env:
-                  V2EXCK: ${{ secrets.V2EXCK }}
-                  SEND_KEY: ${{ secrets.SEND_KEY }}
-                  TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
-                  TG_USER_ID: ${{ secrets.TG_USER_ID }}   
-              run: |
-                  node function/v2ex/v2ex.js                  
+            # - name: "V2ex自动签到"
+            #   env:
+            #       V2EXCK: ${{ secrets.V2EXCK }}
+            #       SEND_KEY: ${{ secrets.SEND_KEY }}
+            #       TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+            #       TG_USER_ID: ${{ secrets.TG_USER_ID }}   
+            #   run: |
+            #       node function/v2ex/v2ex.js                  
 
             # - name: "爱奇艺会员签到"
             #   run: |
